@@ -1,7 +1,7 @@
 {
   "name": "trillo-project-webpage",
   "version": "1.0.0",
-  "description": "",
+  "description": "trillo app",
   "main": "index.js",
   "scripts": {
     "dev": "parcel index.html",
