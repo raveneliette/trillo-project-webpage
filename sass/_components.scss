@@ -190,3 +190,15 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+
+/////////////////////////////////////////////////
+// Gallery
+.gallery {
+    display: flex;
+
+    &__photo {
+        width: 100%; //Responsive images
+        display: block; //Avoid having a small space underneath an image
+    }
+}
