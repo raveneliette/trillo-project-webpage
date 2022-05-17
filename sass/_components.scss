@@ -356,7 +356,33 @@
 }
 
 
-
-
 /////////////////////////////////////////////////
 // Recommend
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+    // justify-content: space-between; //alternative option to give both space
+
+    &__count {
+        margin-right: auto; //automatically calculated space in the right
+    }
+
+    &__friends {
+        // margin-left: auto; //Alternative automatically calculated space in the left
+    }
+
+    &__photo {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-sizing: content-box; //Set to default to make the border outside the image
+
+        &:not(:last-child) {
+            margin-right: -2.3rem;
+        }
+    }
+}
