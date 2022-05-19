@@ -53,4 +53,8 @@
 
 .user-reviews {
     flex: 1; //Occupy the entire remaining space
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
