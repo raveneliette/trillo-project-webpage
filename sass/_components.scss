@@ -391,7 +391,7 @@
         box-sizing: content-box; //Set to default to make the border outside the image
 
         &:not(:last-child) {
-            margin-right: -2.3rem;
+            margin-right: -2rem;
         }
     }
 }
