@@ -35,6 +35,10 @@ $bp-large: 68.75em; // 1100px / 16px = 68.75em
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px, 10px / 16px = .625 = 62.5%
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%; // Reduced ---> 8 / 16 = .5 or 50%
+    }
 }
 
 body {
