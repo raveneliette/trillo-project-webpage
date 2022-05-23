@@ -16,6 +16,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%; // To be able for flex-wrap in the header to work at 500px viewport
+        background-color: var(--color-grey-light-2);
+    }
     
     &__input {
         font-family: inherit;
@@ -186,12 +192,17 @@
         display: flex;
         align-items: center;
         position: relative; //To make the text appear before background color
-        z-index: 10;
+        z-index: 10; 
 
         @media only screen and (max-width: $bp-medium) {
             justify-content: center;
             padding: 2rem;
         }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }   
     }
 
     &__icon {
@@ -199,6 +210,13 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor; //current-color basically is just the color of the current element or the parent element.
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }   
     }
 }
 
@@ -241,6 +259,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }   
     }
 
     &__stars {
@@ -276,17 +299,29 @@
         align-self: stretch;
         justify-content: center;
         flex-direction: column;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }   
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
     }
 
 }
@@ -373,16 +408,21 @@
         margin-right: .7rem;
 
         //Older Browsers
-        // background-image: url(../img/chevron-thin-right.svg);
-        // background-size: cover;
+        // If we don't support the mask image, then this below will happen
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         // What is mask - mask defines an area where we can look through the element and see what's behind that element
         //Newer Browsers - masks
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-                mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-                mask-size: cover;
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            // If we support the mask image, then this is what happen inside the brackets
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+                    mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+                    mask-size: cover;
+            background-image: none; //Fixed the dark icon to have a color
+        }
     }
 }
 
